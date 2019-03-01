@@ -14,19 +14,19 @@ int main()
 	//7 10 3						Нет
 	//4 5 8						Да
 	//*/
-	//int a, b, c;
-	//cout << "Введите 3 стороны треуголки: " << endl;
-	//cin >> a;
-	//cin >> b;
-	//cin >> c;
-	//if (a + b > c && a + c > b && b + c > a)
-	//{
-	//	cout << "da" << endl;
-	//}
-	//else
-	//{
-	//	cout << "no" << endl;
-	//}
+	int a, b, c;
+	cout << "Введите 3 стороны треуголки: " << endl;
+	cin >> a;
+	cin >> b;
+	cin >> c;
+	if (a + b > c && a + c > b && b + c > a)
+	{
+		cout << "da" << endl;
+	}
+	else
+	{
+		cout << "no" << endl;
+	}
 
 	/* Задание 2
 	Напишите код, правильно склоняющий существительное «рублей» следующее за указанным числительным.
@@ -39,22 +39,22 @@ int main()
 	101					рубль
 	1255					рублей
 	*/
-	/*int m;
+	int q;
 	cout << "Введите деньгу" << endl;
-	cin >> m;
-	m %= 10;
-	switch (m)
+	cin >> q;
+	q %= 10;
+	switch (q)
 	{
 	case 1:
 		cout << "рубль " << endl;
 		break;
 	case 2:
 		cout << "рубля " << endl;
-		break;		
+		break;
 	default:
 		cout << "рублей " << endl;
 		break;
-	}*/
+	}
 
 	/* Задание 3
 	В воскресенье Вася пошел в кружок робототехники и увидел там такой код управления боевым роботом:
@@ -63,7 +63,6 @@ int main()
 	bool enemyInFront;
 	bool isBoss;
 	int robotHealth;
-
 	// Код Васи
 	bool shouldFire = true;
 	if (enemyInFront == true)
@@ -78,7 +77,6 @@ int main()
 	{
 	shouldFire = false;
 	}
-
 	if(shouldFire)
 	{
 	cout << "Fire" << endl;
@@ -92,18 +90,18 @@ int main()
 	true true 60			Fire
 	*/
 
-	
-	/*bool enemyInFront;
+
+	bool enemyInFront;
 	bool isBoss;
 	int robotHealth;
 	bool shouldfire = 1;
 	cin >> enemyInFront;
 	cin >> isBoss;
 	cin >> robotHealth;
-	if ((enemyInFront ==1 && isBoss == 1 && robotHealth > 50) || (enemyInFront ==1 && isBoss !=1  ))
+	if ((enemyInFront == 1 && isBoss == 1 && robotHealth > 50) || (enemyInFront == 1 && isBoss != 1))
 	{
 		cout << "fire" << endl;
-	}*/
+	}
 
 
 	/* Задание 4
@@ -121,19 +119,56 @@ int main()
 	1 5 5				5
 	4 5 6				5
 	*/
-//int i, vas, pet, he1,he2;
-//cout << "Введите свои оценки:" << endl;
-//cin >> i;
-//cin >> vas;
-//cin >> pet;
-//
-
+	int co = 0;
+	int i, vas, pet, max, min;
+	cout << "Введите свои оценки:" << endl;
+	cin >> i;
+	cin >> vas;
+	cin >> pet;
+	max = i;
+	if (vas > i)
+	{
+		max = vas;
+	}
+	if (pet > max)
+	{
+		max = pet;
+	}
+	min = i;
+	if (vas < min)
+	{
+		min = vas;
+	}
+	if (pet < min)
+	{
+		min = pet;
+	}
+	if (i != max && i != min)
+	{
+		co = i;
+	}
+	else if (vas != max && vas != min)
+	{
+		co = vas;
+	}
+	else if (pet != max && pet != min)
+	{
+		co = pet;
+	}
+	else if (i == vas || i == pet)
+	{
+		co = i;
+	}
+	else if (vas = pet)
+	{
+		co = vas;
+	}
+	cout << "Среднее: " << co << endl;
 
 
 	/* Задание 5
 	Написать логику, которая проверяет возможность существования даты по введенным пользователем данных.
 	Пользователь вводит данные в формате день, месяц, год.
-
 	Тестовые данные				Ожидаемый результат
 	1 1 1992					true
 	30 6 1992					true
@@ -147,52 +182,126 @@ int main()
 	29 2 2000					true
 	*/
 
-int d, m, y;
-bool ans;
-cout << " Введите данные в формате день, месяц, год" << endl;
-cin >> d;
-cin >> m;
-cin >> y;
-if (d < 32 && m < 13)
-{
-	if (((y % 4 == 0 && (y % 100 != 0)) || (y % 400 == 0))
-		&& (m % 2 == 0 && d <= 30))
-	{
-		ans = 1;	
-}
-	else if (((y % 4 == 0 && (y % 100 != 0)) || (y % 400 == 0))
-		&& (m == 2 && d <= 28))
-	{
-		ans = 1;
-	}
-	else if( (m % 2 != 0 && d <= 31) || (d==28 && m == 2))
-	{
-		ans = 1;
-	}
-	else
-	{
-		ans = 0;
-	}
-}
-else
-{
-	ans = 0;
-}
-cout << ans << endl;
+		int d, m, y;
+		bool ans;
+		cout << " Введите данные в формате день, месяц, год" << endl;
+		cin >> d;
+		cin >> m;
+		cin >> y;
+		if (d < 32 && m < 13)
+		{
+			switch (m)
+			{
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				if (d <= 31)
+				{
+					ans = true;
+
+				}
+				else
+				{
+					ans = false;
+				}
+				break;
+			case 2:
+				if ((y % 4 == 0 && (y % 100 != 0) || (y % 400 == 0))
+					&& ( d <= 29))
+				{
+					ans = true;
+				}
+				else if (((y % 4 != 0 && (y % 100 == 0)) || (y % 400 != 0))
+					&& (d <= 28))
+				{
+					ans = true;
+				}
+				else
+				{
+					ans = false;
+				}
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				if (d <= 30)
+				{
+					ans = true;
+				}
+				else
+				{
+					ans = false;
+				}
+
+			default:
+				break;
+			}
+		}
+		else
+		{
+			ans = false;
+		}
+		cout << boolalpha;
+		cout << ans << endl;
+
+
+
+		/* Задание 6
+		Шахматный ферзь ходит по диагонали, горизонтали или вертикали.
+		Даны две различные клетки шахматной доски, Написать логику, которая определяет
+		может ли ферзь попасть с первой клетки на вторую одним ходом.
+		Клетки нумеруются с 1. Пользователь вводит координаты начальной и конечной клетки в формате x1x2.
+		x1 - номер клетки по горизонтали, x2 - номер клетки по вертикали
+		Тестовые данные				Ожидаемый результат
+		54 14						true
+		11 88						true
+		36 61						false
+		18 71						false
+		23 67						true
+		*/
+		int x1, y1, x2, y2, gaf,may, kar, gar;
+		bool dispanser;
+		cout << "Введите координаты 1 клетки" << endl;
+		cin >> x1  ;
+		cin >> y1 ;
+		cout << "Введите координаты 2 клетки" << endl;
+		cin >> x2;
+		cin >> y2;
+		if (x1 > x2)
+		{
+			gaf = x1;
+			kar = x2;
+		}
+		else
+		{
+			gaf = x2;
+			kar = x1;
+		}
+		if (y1 >y2)
+		{
+			may = y1;
+			gar = y2;
+		}
+		else
+		{
+			may= y2;
+			gar = y1;
+		}
+		if ((x1 == x2 || y1 == y2)||(gaf - kar == may  - gar))
+		{
+			dispanser = true;
+		}
+		else
+		{
+			dispanser = false;
+		}
+		cout << boolalpha;
+		cout << dispanser << endl;
+
 
 }
-
-	/* Задание 6
-	Шахматный ферзь ходит по диагонали, горизонтали или вертикали.
-	Даны две различные клетки шахматной доски, Написать логику, которая определяет
-	может ли ферзь попасть с первой клетки на вторую одним ходом.
-	Клетки нумеруются с 1. Пользователь вводит координаты начальной и конечной клетки в формате x1x2.
-	x1 - номер клетки по горизонтали, x2 - номер клетки по вертикали
-
-	Тестовые данные				Ожидаемый результат
-	54 14						true
-	11 88						true
-	36 61						false
-	18 71						false
-	23 67						true
-	*/
