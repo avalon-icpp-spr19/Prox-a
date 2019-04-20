@@ -9,11 +9,16 @@ struct Point
 
 };
 
+
 int stor[3] = { 1,2,3 };
 
 const int MAX_LENGHT = 32; // задаем максимальную длину текстовых данных
 const int MAX_EXAMS = 10; // задаем максимальное количество экзаменов у одного студента
-
+struct Circle
+{
+	int r;
+	Point centr;
+};
 struct date
 {
 	int day;
@@ -41,7 +46,7 @@ const char TYPS[][255]
 int main()
 {
 
-
+	setlocale(0, "");
 
 
 	/*
@@ -79,7 +84,7 @@ int main()
 		{
 			cout << "da";
 		}
-
+		cout << endl;
 		/*
 	Написать программу, которая по двум заданным точкам - концам отрезка находит точку середины отрезка.
 	Координаты точек пользователь вводит с клавиатуры.
@@ -108,8 +113,24 @@ int main()
 	Написать программу, которая определяет пересекаются ли окружности,
 	описанные данными переменными.
 	*/
-
-
+	int dlinna;
+	Circle Michail_Krug;
+	Michail_Krug.r = 6;
+	Michail_Krug.centr.x = 0;
+	Michail_Krug.centr.y = 0;
+	Circle Michail_Krug2;
+	cout << "Vvedite krug" << endl;
+	cin >> Michail_Krug2.r;
+	cin >> Michail_Krug2.centr.x;
+	cin >> Michail_Krug2.centr.y;
+	cout << "R1 - "  << Michail_Krug.r<< endl;
+	cout << "centr - " << Michail_Krug.centr.x << " " << Michail_Krug.centr.y << endl;
+	cout << "R2 - " << Michail_Krug2.r << endl;
+	cout << "centr - " << Michail_Krug2.centr.x << " " << Michail_Krug2.centr.y << endl;
+	dlinna = 0.5*(pow((Michail_Krug2.centr.x - Michail_Krug.centr.x), 2) +
+		((Michail_Krug2.centr.y - Michail_Krug.centr.y), 2));
+	if (Michail_Krug.r + Michail_Krug2.r <= dlinna)cout << "Пересекаются";
+	cout << endl;
 
 
 /*
@@ -127,45 +148,11 @@ int main()
 	
 	
 	
-			setlocale(0, "");
+			
 
 	
 
 		
-			Triangle tre = { 1, 2, 3 };
-		
-
-		
-		cout << tre.a << " " << tre.b<< " " << tre.c << endl;
-
-		
-		for (int i = 0; i <3; ++i)
-		{
-			
-				
-				switch (i)
-				{
-				case 1:
-					cout << TYPS[0];
-					break;
-				case 2:
-					cout << TYPS[1];
-					break;
-				case 3:
-					cout << TYPS[2];
-					break;
-				
-				default:
-					cout << TYPS[4];
-					break;
-				}
-
-				
-			
-
-		}
-		int per = tre.a + tre.b + tre.c;
-		cout << "Периметр = " << per << endl;
 
 /*
 Задание №4
@@ -190,7 +177,7 @@ int main()
 					minimalno.y = masas[i].y;
 				}
 			}
-
+			cout << "Minimal; " << moon << " min rasst " << minimalno.x << "|" << minimalno.y << endl;
 
 /*
 Задание №5
