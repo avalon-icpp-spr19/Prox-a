@@ -178,7 +178,7 @@ cout << "Введите 1 строкy:" << endl;
 	char *ale = line1;
 	
 	bool ans = true;
-	while (*alo != '\0' && *ale != '\0')
+	while (*alo != '\0' || *ale != '\0')
 	{
 		if (*alo != *ale)
 		{
@@ -189,5 +189,6 @@ cout << "Введите 1 строкy:" << endl;
 		++ale;
 		
 	}
+	if(*alo != *ale)ans= false;
 	cout << ans << endl;
 	}
