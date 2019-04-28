@@ -176,7 +176,7 @@ cout << "Введите 1 строкy:" << endl;
 	cin.getline(line1, 256);
 	char *alo = line;
 	char *ale = line1;
-	int schet = 1;
+	
 	bool ans = true;
 	while (*alo != '\0' && *ale != '\0')
 	{
@@ -187,7 +187,7 @@ cout << "Введите 1 строкy:" << endl;
 		}
 		++alo;
 		++ale;
-		++schet;
+		
 	}
 	cout << ans << endl;
 	}
