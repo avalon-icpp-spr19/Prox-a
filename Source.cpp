@@ -83,8 +83,8 @@ int simulator2000( float n)
 	}
 	
 	
-	cout << "Ã‚Ã±Ã¥Ã£Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: " << n << endl;
-	cout << "Ã•Ã®Ã²Ã¿ Ã¡Ã» 2 Ã¤Ã­Ã¿ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã±Ã®Ã¢Ã¯Ã Ã«Ã¨ Ã¢ " << successSimulations <<" Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¿Ãµ"<< " | ÃÃ°Ã®Ã¶Ã¥Ã­Ã² Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã»Ãµ: "<< successSimulations / n * 100 << "%" <<endl;
+	cout << "Âñåãî ñèìóëÿöèé: " << n << endl;
+	cout << "Õîòÿ áû 2 äíÿ ðîæäåíèÿ ñîâïàëè â " << successSimulations <<" ñèìóëÿöèÿõ"<< " | Ïðîöåíò óñïåøíûõ: "<< successSimulations / n * 100 << "%" <<endl;
 	return 1;
 };
 int simulator2001(float n)
@@ -158,8 +158,8 @@ int simulator2001(float n)
 	}
 
 
-	cout << "Ã‚Ã±Ã¥Ã£Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: " << n << endl;
-	cout << "Ã•Ã®Ã²Ã¿ Ã¡Ã» 3 Ã¤Ã­Ã¿ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã±Ã®Ã¢Ã¯Ã Ã«Ã¨ Ã¢ " << successSimulations << " Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¿Ãµ" << " | ÃÃ°Ã®Ã¶Ã¥Ã­Ã² Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã»Ãµ: " << successSimulations / n * 100 << "%" << endl;
+	cout << "Âñåãî ñèìóëÿöèé: " << n << endl;
+	cout << "Õîòÿ áû 3 äíÿ ðîæäåíèÿ ñîâïàëè â " << successSimulations << " ñèìóëÿöèÿõ" << " | Ïðîöåíò óñïåøíûõ: " << successSimulations / n * 100 << "%" << endl;
 	return 1;
 };
 int simulator2002( int day, int month)
@@ -254,24 +254,116 @@ int simulator2002( int day, int month)
 		}
 
 
-		cout << "Ã‘Ã®Ã¢Ã¯Ã Ã¢Ã¸Ã¥Ã¥ Ã¤Ã¥Ã­Ã¼ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã®ÃªÃ Ã§Ã Ã«Ã®Ã±Ã¼ Ã°Ã Ã¢Ã­Ã® Ã¯Ã°Ã®Ã·Ã¨Ã²Ã Ã­Ã­Ã®Ã¬Ã³ Ã¯Ã°Ã¨ " << successSimulations << " Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¨" << endl;
+		cout << "Ñîâïàâøåå äåíü ðîæäåíèÿ îêàçàëîñü ðàâíî ïðî÷èòàííîìó ïðè " << successSimulations << " ñèìóëÿöèè" << endl;
 
 		return 1;
 	}
 };
+int simulator2003( float n, float procent)
+{
+	
+	float visokosTest, counter = 0, successSimulations = 0;
+	int group = 0;
+	float procent1 = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		group += 1;
+		date *data = new date[group];
+		for (int i = 0; i < n; ++i)
+		{
+			
+			for (int j = 0; j < group; ++j)
+			{
+				data[j].month = GetRandomValue(1, 12);
+				switch (data[j].month)
+				{
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					data[j].day = GetRandomValue(1, 31);
+					break;
+				case 9:
+				case 4:
+				case 6:
+				case 11:
+					data[j].day = GetRandomValue(1, 30);
+					break;
+				case 2:
+					visokosTest = GetRandomValue(1, 2);
+					if (visokosTest == 1)
+					{
+						data[j].day = GetRandomValue(1, 28);
+					}
+					else
+					{
+						data[j].day = GetRandomValue(1, 29);
+					}
+					break;
+				default:
+					break;
+				}
+			}
+			for (int k = 0; k < group; ++k)
+			{
+				for (int o = 0; o < group; ++o)
+				{
+					if (data[k].month == data[o].month &&
+						data[k].day == data[o].day && o != k)
+					{
+						counter += 1;
+					}
+
+				}
+				if (counter >= 1)
+				{
+					successSimulations += 1;
+					
+					break;
+				}
+				counter = 0;
+			}
+			counter = 0;
+			
+			
+		}
+		procent1 = successSimulations / n * 100;
+		if (procent1 >= procent)
+		{
+			cout << "Óêàçàííàÿ âåðîÿòíîñòü ñîâïàäåíèÿ äíåé ðîæäåíèÿ äîñòèãàåòñÿ â ãðóïïå ðàçìåðîì " <<
+				group << " ÷åëoâåê" << endl;
+			delete[]data;
+			break;
+		}
+		else
+		{
+			cout << "Ïðè ãðóïïå ðàçìåðîì " << group
+				<< " ÷åëîâåê äîñòèãíóòà âåðîÿòíîñòü " << procent1 << "%" << endl;
+			delete[]data;
+		}
+		successSimulations = 0;
+		procent1 = 0;
+	}
+	
+
+	return 1;
+};
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 1" << endl;
+	/*cout << "Óðîâåíü 1" << endl;
 	float n;
-	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã·Ã¨Ã±Ã«Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: ";
+	cout << "Ââåäèòå ÷èñëî ñèìóëÿöèé: ";
 	cin >> n;
 	simulator2000(n);
 	cout << endl;
-	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 2" << endl;
+	cout << "Óðîâåíü 2" << endl;
 	simulator2001(n);
 	cout << endl;
-	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 3" << endl;
+	cout << "Óðîâåíü 3" << endl;
 	date ReadBornDay;
 	ifstream fin("birthday.txt");
 	if (fin.is_open() != true)
@@ -282,7 +374,7 @@ int main()
 	{
 		fin >> ReadBornDay.day; 	
 		fin >> ReadBornDay.month; 
-		cout << "ÃˆÃ§ Ã´Ã Ã©Ã«Ã  Ã¯Ã°Ã®Ã·Ã¨Ã²Ã Ã­Ã® Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¥Ã¥ Ã¤Ã¥Ã­Ã¼ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿: " << 
+		cout << "Èç ôàéëà ïðî÷èòàíî ñëåäóþùåå äåíü ðîæäåíèÿ: " << 
 			ReadBornDay.day << " " << ReadBornDay.month << endl;
 		if (ReadBornDay.day < 32 && ReadBornDay.month < 13 &&
 			ReadBornDay.day > 0 && ReadBornDay.month > 0)
@@ -294,8 +386,19 @@ int main()
 			cout << "Uncorrect data" << endl;
 		}
 		
-	}
-	
+	}*/
+	cout << endl;
+	cout << "Óðîâåíü 4" << endl;
+	float procent , N;
+	cout << "Ââåäèòå æåëàåìûé ïðîöåíò ñîâïàäåíèÿ 2 äíåé ðîæäåíèÿ: ";
+	cin >> procent;
+	cout << "Ââåäèòå êîëè÷åñòâî ñèìóëÿöèé äëÿ êàæäîé ãðóïïû: ";
+	cin >> N;
+
+	simulator2003(N, procent);
+
+
+
 
 
 
