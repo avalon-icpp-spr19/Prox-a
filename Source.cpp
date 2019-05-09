@@ -83,8 +83,8 @@ int simulator2000( float n)
 	}
 	
 	
-	cout << "Âñåãî ñèìóëÿöèé: " << n << endl;
-	cout << "Õîòÿ áû 2 äíÿ ðîæäåíèÿ ñîâïàëè â " << successSimulations <<" ñèìóëÿöèÿõ"<< " | Ïðîöåíò óñïåøíûõ: "<< successSimulations / n * 100 << "%" <<endl;
+	cout << "Ã‚Ã±Ã¥Ã£Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: " << n << endl;
+	cout << "Ã•Ã®Ã²Ã¿ Ã¡Ã» 2 Ã¤Ã­Ã¿ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã±Ã®Ã¢Ã¯Ã Ã«Ã¨ Ã¢ " << successSimulations <<" Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¿Ãµ"<< " | ÃÃ°Ã®Ã¶Ã¥Ã­Ã² Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã»Ãµ: "<< successSimulations / n * 100 << "%" <<endl;
 	return 1;
 };
 int simulator2001(float n)
@@ -158,8 +158,8 @@ int simulator2001(float n)
 	}
 
 
-	cout << "Âñåãî ñèìóëÿöèé: " << n << endl;
-	cout << "Õîòÿ áû 3 äíÿ ðîæäåíèÿ ñîâïàëè â " << successSimulations << " ñèìóëÿöèÿõ" << " | Ïðîöåíò óñïåøíûõ: " << successSimulations / n * 100 << "%" << endl;
+	cout << "Ã‚Ã±Ã¥Ã£Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: " << n << endl;
+	cout << "Ã•Ã®Ã²Ã¿ Ã¡Ã» 3 Ã¤Ã­Ã¿ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã±Ã®Ã¢Ã¯Ã Ã«Ã¨ Ã¢ " << successSimulations << " Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¿Ãµ" << " | ÃÃ°Ã®Ã¶Ã¥Ã­Ã² Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã»Ãµ: " << successSimulations / n * 100 << "%" << endl;
 	return 1;
 };
 int simulator2002( int day, int month)
@@ -254,7 +254,7 @@ int simulator2002( int day, int month)
 		}
 
 
-		cout << "Ñîâïàâøåå äåíü ðîæäåíèÿ îêàçàëîñü ðàâíî ïðî÷èòàííîìó ïðè " << successSimulations << " ñèìóëÿöèè" << endl;
+		cout << "Ã‘Ã®Ã¢Ã¯Ã Ã¢Ã¸Ã¥Ã¥ Ã¤Ã¥Ã­Ã¼ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿ Ã®ÃªÃ Ã§Ã Ã«Ã®Ã±Ã¼ Ã°Ã Ã¢Ã­Ã® Ã¯Ã°Ã®Ã·Ã¨Ã²Ã Ã­Ã­Ã®Ã¬Ã³ Ã¯Ã°Ã¨ " << successSimulations << " Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã¨" << endl;
 
 		return 1;
 	}
@@ -262,16 +262,16 @@ int simulator2002( int day, int month)
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	cout << "Óðîâåíü 1" << endl;
+	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 1" << endl;
 	float n;
-	cout << "Ââåäèòå ÷èñëî ñèìóëÿöèé: ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã·Ã¨Ã±Ã«Ã® Ã±Ã¨Ã¬Ã³Ã«Ã¿Ã¶Ã¨Ã©: ";
 	cin >> n;
 	simulator2000(n);
 	cout << endl;
-	cout << "Óðîâåíü 2" << endl;
+	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 2" << endl;
 	simulator2001(n);
 	cout << endl;
-	cout << "Óðîâåíü 3" << endl;
+	cout << "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 3" << endl;
 	date ReadBornDay;
 	ifstream fin("birthday.txt");
 	if (fin.is_open() != true)
@@ -282,7 +282,7 @@ int main()
 	{
 		fin >> ReadBornDay.day; 	
 		fin >> ReadBornDay.month; 
-		cout << "Èç ôàéëà ïðî÷èòàíî ñëåäóþùåå äåíü ðîæäåíèÿ: " << 
+		cout << "ÃˆÃ§ Ã´Ã Ã©Ã«Ã  Ã¯Ã°Ã®Ã·Ã¨Ã²Ã Ã­Ã® Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¥Ã¥ Ã¤Ã¥Ã­Ã¼ Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã¨Ã¿: " << 
 			ReadBornDay.day << " " << ReadBornDay.month << endl;
 		if (ReadBornDay.day < 32 && ReadBornDay.month < 13 &&
 			ReadBornDay.day > 0 && ReadBornDay.month > 0)
